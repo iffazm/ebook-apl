@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\author;
+use JWTAuth;
 
 class AuthorController extends Controller
 {
@@ -18,6 +19,9 @@ class AuthorController extends Controller
         //
         return author::get();
     }
+
+    public function __construct() {
+        $this->middleware('auth:api');}
 
     /**
      * Show the form for creating a new resource.

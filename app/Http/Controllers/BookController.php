@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Book;
+use JWTAuth;
 
 class BookController extends Controller
 {
@@ -17,6 +18,9 @@ class BookController extends Controller
     {
         return Book::get();
     }
+
+    public function __construct() {
+        $this->middleware('auth:api');}
 
     /**
      * Store a newly created resource in storage.
